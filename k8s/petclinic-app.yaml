@@ -44,7 +44,7 @@ spec:
           httpGet:
             path: /actuator/health/liveness
             port: 8080
-          initialDelaySeconds: 25
+          initialDelaySeconds: 60
           periodSeconds: 3
         env:
         - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI

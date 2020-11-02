@@ -2,8 +2,8 @@
 ---
 petclinic:
   host: ""
-  image: ""
+  image: "nitashav/spring-petclinic:V1-b13.20201102.000210"
   wavefront:
-    applicationName: ""
-    uri: ""
-    apiToken: ""
+    applicationName: "Spring-PetClinic"
+    uri: "https://try.wavefront.com"
+    apiToken: "da302618-124a-4e2b-9850-59b7e11ea587"

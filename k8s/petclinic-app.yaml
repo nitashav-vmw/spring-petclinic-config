@@ -80,28 +80,3 @@ spec:
     - name: http
       protocol: TCP
       port: 8080
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: spring-petclinic
-  namespace: petclinic
-  labels:
-    app: spring-petclinic
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-contour-cluster-issuer
-    ingress.kubernetes.io/force-ssl-redirect: "true"
-    kubernetes.io/ingress.class: contour
-    kubernetes.io/tls-acme: "true"
-spec:
-  tls:
-  - secretName: petclinic-tls
-    hosts:
-    - #@ data.values.petclinic.host
-  rules:
-  - host: #@ data.values.petclinic.host
-    http:
-      paths:
-      - backend:
-          serviceName: spring-petclinic
-          servicePort: 8080

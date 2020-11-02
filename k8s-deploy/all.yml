@@ -9,8 +9,8 @@ metadata:
     app: spring-petclinic
 type: Opaque
 data:
-  MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI: aHR0cHM6Ly90cnkud2F2ZWZyb250LmNvbQo=
-  MANAGEMENT_METRICS_EXPORT_WAVEFRONT_API_TOKEN: ZGEzMDI2MTgtMTI0YS00ZTJiLTk4NTAtNTliN2UxMWVhNTg3Cg==
+  MANAGEMENT_METRICS_EXPORT_WAVEFRONT_URI: #@ base64.encode(data.values.petclinic.wavefront.uri)
+  MANAGEMENT_METRICS_EXPORT_WAVEFRONT_API_TOKEN: #@ base64.encode(data.values.petclinic.wavefront.apiToken)
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: spring-petclinic
-        image: nitashav/spring-petclinic:V1-b13.20201102.000210
+        image: #@ data.values.petclinic.image
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -58,7 +58,7 @@ spec:
               name: wavefront
               key: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_API_TOKEN
         - name: WAVEFRONT_APPLICATION_NAME
-          value: Spring-PetClinic
+          value: #@ data.values.petclinic.wavefront.applicationName
         - name: WAVEFRONT_APPLICATION_SERVICE
           value: petclinic
         - name: spring_profiles_active

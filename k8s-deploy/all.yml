@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: spring-petclinic
-        image: nitashav/spring-petclinic:V1-b30.20201210.190655
+        image: nitashav/spring-petclinic:V1-b32.20201210.194905
         ports:
         - containerPort: 8080
         readinessProbe:

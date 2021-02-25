@@ -3,7 +3,7 @@
 app:
   ns: "petclinic"
   name: "spring-petclinic"
-  host: ""
+  host: "petclinic.tools.azure.nvcodes.net"
   image: "nitashav/spring-petclinic:V1-b13.20201102.000210"
   wavefront:
     applicationName: "Spring-PetClinic"

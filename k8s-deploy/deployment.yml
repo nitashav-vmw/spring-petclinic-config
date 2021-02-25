@@ -19,7 +19,7 @@ spec:
       - name: harbor-creds
       containers:
       - name: spring-petclinic
-        image: nitashav/spring-petclinic:V1-b5.20210225.175528
+        image: nitashav/spring-petclinic:V1-b1.20210225.184703
         ports:
         - containerPort: 8080
         readinessProbe:

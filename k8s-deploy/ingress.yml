@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app.kubernetes.io/instance: spring-petclinic
+  name: spring-petclinic
+  namespace: petclinic
+spec:
+  rules:
+  - host: petclinic.tools.azure.nvcodes.net
+    http:
+      paths:
+      - backend:
+          serviceName: spring-petclinic
+          servicePort: http
+        path: /

@@ -50,7 +50,7 @@ spec:
             steps {
               sh('''
               ls .
-              ytt -f ./spring-base/k8s ./spring-petclinic-config/k8s/values.yaml > all.yml
+              ytt -f ./spring-base/k8s -f ./spring-petclinic-config/k8s/values.yaml > all.yml
               cat all.yml
               ls . 
               ''') 

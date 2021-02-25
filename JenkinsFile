@@ -51,9 +51,9 @@ spec:
             steps {
               sh('''
               ls .
-              ytt -f ./spring-base/k8s -f ./spring-petclinic-config/k8s/values.yaml > all.yml
-              cat all.yml
-              ls . 
+              ytt -f ./spring-base/k8s -f ./spring-petclinic-config/k8s/values.yaml -v app.image=$repo:$tag --output-files ./spring-petclinic-config/k8s-deploy/
+              cat ./spring-petclinic-config/k8s-deploy/deployment.yml
+              ls ./spring-petclinic-config/k8s-deploy
               ''') 
              
             }

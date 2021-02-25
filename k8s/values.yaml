@@ -4,7 +4,7 @@ app:
   ns: "petclinic"
   name: "spring-petclinic"
   host: "petclinic.tools.azure.nvcodes.net"
-  image: "nitashav/spring-petclinic:V1-b13.20201102.000210"
+  image: "harbor.tools.azure.nvcodes.net/cicd-demo/spring-petclinic:V1-b3.20210224.161029"
   wavefront:
     applicationName: "Spring-PetClinic"
     uri: "https://try.wavefront.com"

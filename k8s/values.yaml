@@ -1,6 +1,8 @@
 #@data/values
 ---
-petclinic:
+app:
+  ns: "petclinic"
+  name: "spring-petclinic"
   host: ""
   image: "nitashav/spring-petclinic:V1-b13.20201102.000210"
   wavefront:

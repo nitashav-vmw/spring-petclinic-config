@@ -73,9 +73,9 @@ spec:
                         git config --global user.name "nitashav-vmw"
                         
                         git add .
-                        git diff-index --quiet main ||git commit  -m "New deployment artifacts"
-                        git branch -u origin/main
-                        git push origin main
+                        git diff-index --quiet master||git commit  -m "New deployment artifacts"
+                        git branch -u origin/master
+                        git push origin master
                     ''')
                 }
             }

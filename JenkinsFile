@@ -52,10 +52,29 @@ spec:
               sh('''
               ls .
               ytt -f ./spring-base/k8s -f ./spring-petclinic-config/k8s/values.yaml -v app.image=$repo:$tag --output-files ./spring-petclinic-config/k8s-deploy/
-              cat ./spring-petclinic-config/k8s-deploy/deployment.yml
               ls ./spring-petclinic-config/k8s-deploy
               ''') 
              
+            }
+        }
+        stage('commit') {
+            environment { 
+                GIT_AUTH = credentials('f09786ed-8c24-4d1a-a768-f0b5266383be') 
+            }
+            steps {
+                container('jnlp'){
+                    sh('''
+                        cd  spring-petclinic-config/k8s-deploy
+                        git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
+                        git config --global user.email "nitashav@vmware.com"
+                        git config --global user.name "nitashav-vmw"
+                        
+                        git add .
+                        git diff-index --quiet main ||git commit  -m "New deployment artifacts"
+                        git branch -u origin/main
+                        git push origin main
+                    ''')
+                }
             }
         }
     }
